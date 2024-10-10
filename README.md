@@ -1,4 +1,4 @@
-# React Query
+## React Query
 
 --> Library for fetching data in react application.
 
@@ -18,7 +18,7 @@
 --> react query have so much intelligence built in that it makes easy for us to handle all these usecase easy.
 
 
-# Query Cache Feature of react query
+## Query Cache Feature of react query
 
 --> It is provided by the library
 --> By default every query result is cached for 5 min,  and react query relies on that cache for subsquent requests.
@@ -27,11 +27,11 @@
 cached data will be immediately returned without isLoading set to true.
 --> However react query know that server data might have updated and cache might not have the latest data , so the background prefetch is triggered for the same query if the fetch is successfull the new data is updated in the UI.
 
-# If isLoading flag is not changed so do we have any key to know that background refetching is happening ? 
+## If isLoading flag is not changed so do we have any key to know that background refetching is happening ? 
 
 --> Yes, isFetching is the flag.
 
-# what if we know database data is not going to change very often, In that case it doesnt make sense to make api call everytime we come on hotel page
+## what if we know database data is not going to change very often, In that case it doesnt make sense to make api call everytime we come on hotel page
 
 --> react query addresses this issue and help let us configured how long a data should remain fresh.
 
@@ -51,7 +51,7 @@ cached data will be immediately returned without isLoading set to true.
     staleTime: 5000,
   });
 
-  # polling
+  ## polling
 
   --> when require network call to be made at regular interval of time
 
@@ -76,7 +76,7 @@ cached data will be immediately returned without isLoading set to true.
   --> if we still want to pull the data even if user goes to other page we can use one property called refetchIntervalInBackground, we have to set it as true
 
 
-  # Fetch data manually when user event happens, for eg: clicked on btn
+  ## Fetch data manually when user event happens, for eg: clicked on btn
 
   --> We don't want to make call when componet is mounted, we want to do this manuaaly.
 
@@ -115,7 +115,7 @@ cached data will be immediately returned without isLoading set to true.
 
    <button onClick={getHotelData}>Fetch Data</button>
 
-   # query by id using react query
+   ## query by id using react query
 
   const { hotelId } = useParams();
 
@@ -127,7 +127,7 @@ cached data will be immediately returned without isLoading set to true.
 
 --> Every single query is considered as a separate query because we are passing id in it , lets say we pull data for 1dt and 2nd hotel data by clicking on those. 1st hotel query and 2nd are cached. if we go to 3rd hotel it will not pull data from cache as each query are different from other so we need to give unique query.
 
-# Pagination
+## Pagination
 
 --> placeholderData: keepPreviousData,
 
@@ -154,7 +154,7 @@ const getPaginatedData = (pageId) => {
     placeholderData: keepPreviousData,
   });
 
-# Infinite scroll using react query
+## Infinite scroll using react query
 
 --> we want to append the data once clicked on load more.
 
@@ -201,13 +201,13 @@ allPages - It is an array of objects, each object is the entire API response of 
     },
   });
 
-  ## working
+  #### working
 
   --> First time when component gets mounted the data is fetched with initial pageParam to be 1 and as soon as fetching is done the getNextPageParam gets executed and stores nectPage value internally. as soon as 1st page fetching is done the allPages is going to have 1 page fetched so far.
 
   --> when loadMore btn is clicked fetchNextPageMethod is called the saved value 2 is sent to pageParam, and same cycle is continued until last page is reached.
 
-  # How we can automatically fetch data while scrolling down
+  ## How we can automatically fetch data while scrolling down
 
   --> to demostrate this we are using - react-intersection-observer
   --> npm i react-intersection-observer
@@ -242,13 +242,13 @@ allPages - It is an array of objects, each object is the entire API response of 
     },
   });
 
-   <div ref={ref} style={{ color: '#fff' }}>
+   <div ref={ref} style={{ color: '##fff' }}>
           {isFetchingNextPage && 'Loading....'}
     </div>
 
-# Mutations
+## Mutations
 
-# Instruct  react-query to automatically fetch the data once data is updated ( after post call )
+## Instruct  react-query to automatically fetch the data once data is updated ( after post call )
 
 --> Doing manual refetch is one option, but what if we can do it automatically.
 
@@ -295,7 +295,7 @@ const addHotels = (hotel) => {
         setBody("");
     }
 
-# Further optimizations in queryValidation ( post call - updating data )
+## Further optimizations in queryValidation ( post call - updating data )
 
 --> if we add any hotel and hit post we have a post request followed by get request.
 
@@ -316,7 +316,7 @@ const addHotels = (hotel) => {
     });
 
 
-# How to do optimistic update using react-query
+## How to do optimistic update using react-query
 
 --> updating the state before performing a mutation under the assumption that nothing can go wrong
 
@@ -353,5 +353,6 @@ await queryclient.cancelQueries(["hotels"]);
         onSettled: () => {
             queryClient.invalidateQueries(["hotels"]);
         }
-    });#   r e a c t - q u e r y - l i b r a r y  
+    });##   r e a c t - q u e r y - l i b r a r y 
+ 
  
