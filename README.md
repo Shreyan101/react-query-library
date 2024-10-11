@@ -17,6 +17,21 @@
 
 - react query have so much intelligence built in that it makes easy for us to handle all these usecase easy.
 
+## In React Query, by default, it refetches the data every time the component mounts to ensure you're working with the latest data. If you want to prevent this behavior (i.e., avoid refetching on every mount), you can set the staleTime option. This controls how long the data remains "fresh" before being considered "stale" and refetching.
+
+- To prevent refetching on mount, you can set a long staleTime, meaning the data will be considered fresh for the duration specified. You can also use refetchOnWindowFocus and refetchOnMount options to control more specific behavior.
+
+-  const {
+    data: supliers,
+    isLoading: supplierIsLoading,
+    error: supplierError,
+    isError: supplierIsError,
+  } = useQuery({
+    queryKey: ['Suppliers'],
+    queryFn: getsupliersData,
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
+  });
 
 
 ## Query Cache Feature of react query
