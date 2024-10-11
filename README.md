@@ -21,6 +21,7 @@
 
 - To prevent refetching on mount, you can set a long staleTime, meaning the data will be considered fresh for the duration specified. You can also use refetchOnWindowFocus and refetchOnMount options to control more specific behavior.
 
+```
 -  const {
     data: supliers,
     isLoading: supplierIsLoading,
@@ -32,7 +33,7 @@
     refetchOnWindowFocus: false,
     refetchOnMount: false,
   });
-
+```
 
 ## Query Cache Feature of react query
 
